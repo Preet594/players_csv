@@ -7,7 +7,10 @@ library(ggplot2)
 source("cleanup.R")
 options(repr.matrix.max.rows = 6)
 
-players <- read_csv("/home/jovyan/work/players_csv/players.csv")
+url <- "https://drive.google.com/uc?id=1Mw9vW0hjTJwRWx0bDXiSpYsO3gKogaPz"
+players <- read_csv(url)
+players
+
 select_data <- players |> 
     filter(played_hours > 0) |>
     select(played_hours, age, experience)
