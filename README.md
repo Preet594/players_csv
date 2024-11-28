@@ -17,5 +17,5 @@ select_data <- players |>
 select_data
 
 clean_data <- mutate(select_data, 
-    as_factor(experience))
+    experience = as.numeric(experience))
 clean_data
