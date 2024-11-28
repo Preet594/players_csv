@@ -11,3 +11,5 @@ select_data <- players |>
     filter(played_hours > 0) |>
     select(played_hours, age, experience)
 select_data
+clean_data <- as_factor(experience)
+clean_data
