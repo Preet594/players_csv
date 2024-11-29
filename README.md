@@ -44,17 +44,13 @@ url <- "https://drive.google.com/uc?id=1Mw9vW0hjTJwRWx0bDXiSpYsO3gKogaPz"
 players <- read_csv(url)
 players
 
+##To wrangle and clean our data we selected only the columns we will be using for our data analysis, filtered the played hours column so that our data set only includes observations from people that have played on the server, and mutated the experience column from a character variable to a numeric variable with Beginner = 1, Amateur = 2, Regular = 3, Pro = 4, and Veteran = 5.
 select_data <- players |> 
     filter(played_hours > 0) |>
     select(played_hours, age, experience)
 select_data
 
 clean_data <- mutate(select_data, 
-    experience = as.numeric(experience))
+    experience = as.numeric(ifelse(is.na(num), NA, (num>))
 clean_data
 
-
-clean_data <- as.numeric(factor(select_data, 
-   experience = c("Beginner", "Amateur", "Regular", "Veteran", "Pro"))
-
-clean_data <- select_data(experience = c("Beginner", "Amateur", "Regular", "Veteran", "Pro"))
