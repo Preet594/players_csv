@@ -67,6 +67,18 @@ clean_data_testing <- testing(clean_data_split)
 clean_data_recipe<-recipe(played_hours ~ experience + age, data = clean_data_training ) |>
   step_scale(all_predictors()) |>
   step_center(all_predictors())
+
+clean_data_spec <- nearest_neighbor(weight_func = "rectangular",
+                              neighbors = tune()) |>
+  set_engine("kknn") |>
+  set_mode("regression")
+
+clean_data_vfold <- vfold_cv(clean_data_training , v = 5, strata = played_hours)
+
+clean_data_wkflw <- workflow() |>
+  add_recipe(clean_data_recipe) |>
+  add_model(clean_data_spec)
+clean_data_wkflw
   
 ## Discussion
 
