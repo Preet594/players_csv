@@ -50,8 +50,18 @@ select_data <- players |>
     select(played_hours, age, experience)
 select_data
 
-select_data[["experience"]] <- ifelse(select_data[["experience"]] == "beginner", 0,
-                               ifelse(select_data[["experience"]] == "amateur", 1, 
-                               ifelse(select_data[["experience"]] == "regular", 2, 
-                               ifelse(select_data[["experience"]] == "pro", 3, 
-                               ifelse(select_data[["experience"]] == "veteran", 5, NA)))
+clean_data <- ifelse(select_data, experience == "beginner", 0,
+        ifelse(experience == "amateur", 1,
+        ifelse(experience == "regular", 2,
+        ifelse(experience == "pro", 3,
+        ifelse(experience == "veteran", 4)))
+        
+select_data <- select_data %>%
+  mutate(clean_data = case_when(
+    experience == "beginner" ~ 0,
+    experience == "amateur" ~ 1,
+    experience == "regular" ~ 2,
+    experience == "pro" ~ 3,
+    experience == "veteran" ~ 4,
+    TRUE ~ NA_real_  # Handles missing or unmatched cases
+  ))
