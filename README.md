@@ -98,7 +98,19 @@ clean_data_wkflw <- workflow() |>
   add_recipe(clean_data_recipe) |>
   add_model(clean_data_spec)
 clean_data_wkflw
-  
+
+gridvals <- tibble(neighbors = seq(from = 1, to = 200, by = 1))
+
+clean_data_results <- clean_data_wkflw |>
+  tune_grid(resamples = clean_data_vfold, grid = gridvals) |>
+  collect_metrics() |>
+  filter(.metric == "rmse")
+clean_data_results
+
+clean_data_min <- clean_data_results |>
+  filter(mean == min(mean))
+clean_data_min
+
 ## Discussion
 
 - summarize what you found
