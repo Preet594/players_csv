@@ -1,4 +1,6 @@
-# players_csv
+# Final Project Report
+
+By Prisha Budhiraja, Yiming Chen, Preet Dhillon,  Jaime Fraser, and Stephanie Tamkee
 
 ## Introduction
 
