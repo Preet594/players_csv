@@ -50,12 +50,10 @@ select_data <- players |>
     select(played_hours, age, experience)
 select_data
 
-clean_data <- mutate(select_data, 
-    experience = as.numeric(ifelse(is.na(num), NA, (num>))
-clean_data
-
-clean_data <- ifelse(select_data, experience == "beginner", 0,
-        ifelse(experience == "amateur", 1,
-        ifelse(experience == "regular", 2,
-        ifelse(experience == "pro", 3,
-        ifelse(experience == "veteran", 4)))
+clean_data <- select_data |>
+  mutate(experience_numeric = case_when(
+   experience == "beginner" ~ 0, 
+   experience == "amateur" ~ 1, 
+   experience == "pro" ~ 2, 
+   experience == "veteran" ~ 3, 
+))
