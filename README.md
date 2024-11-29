@@ -154,10 +154,12 @@ clean_data_summary <- clean_data_fit |>
   
 clean_data_summary
 
-knn_mult_mets <- metrics(clean_data_summary, truth = played_hours, estimate = .pred) |>
+
+knn_mult_mets <- clean_data_summary|> 
+  metrics(truth = played_hours, estimate = .pred) |>
   filter(.metric == 'rmse')
-  
 knn_mult_mets
+
 
 plot_3D <- plot_ly(data = clean_data, 
                    x = ~age, 
