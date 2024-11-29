@@ -55,5 +55,5 @@ clean_data <- select_data |>
    experience == "beginner" ~ 0, 
    experience == "amateur" ~ 1, 
    experience == "pro" ~ 2, 
-   experience == "veteran" ~ 3, 
+   experience == "veteran" ~ 3
 ))
