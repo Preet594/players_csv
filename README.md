@@ -111,6 +111,25 @@ clean_data_min <- clean_data_results |>
   filter(mean == min(mean))
 clean_data_min
 
+#moving onto testing: 
+kmin <- clean_data_min |> pull(neighbors)
+
+clean_data_spec <- nearest_neighbor(weight_func = "rectangular", neighbors = kmin) |>
+  set_engine("kknn") |>
+  set_mode("regression")
+
+clean_data_fit <- workflow() |>
+  add_recipe(clean_data_recipe) |>
+  add_model(clean_data_spec) |>
+  fit(data = clean_data_training)
+
+clean_data_summary <- clean_data_fit |>
+  predict(clean_data_testing) |>
+  bind_cols(clean_data_testing) |>
+  metrics(truth = played_hours, estimate = .pred) |>
+  filter(.metric == 'rmse')
+clean_data_summary
+
 ## Discussion
 
 - summarize what you found
