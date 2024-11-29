@@ -160,22 +160,6 @@ knn_mult_mets <- clean_data_summary|>
   filter(.metric == 'rmse')
 knn_mult_mets
 
-
-plot_3D <- plot_ly(data = clean_data, 
-                   x = ~age, 
-                   y = ~experience, 
-                   z = ~played_hours, 
-                   type = "scatter3d", 
-                   mode = "markers", 
-                   marker = list(size = 5, color = clean_data$played_hours, colorscale = 'Viridis', showscale = TRUE))|>
-  layout(title = "3D Plot: Relationship between the Age and Experience Level of Players and their Total Played Hours",
-         scene = list(
-           xaxis = list(title = "Age of Players"),
-           yaxis = list(title = "Experience Level of Players"),
-           zaxis = list(title = "Total Played Hours for each Player")
-         ))
-plot_3D
-
 install.packages("scatterplot3d")
 library(scatterplot3d)
 plot_3d <- scatterplot3d(clean_data$age, 
@@ -187,39 +171,6 @@ plot_3d <- scatterplot3d(clean_data$age,
                          xlab = "Age of Players",
                          ylab = "Experience Level of Players",
                          zlab = "Total Played Hours")
-
-
-knn_predict <- function(query_point, k, data, target) {
-  # Calculate Euclidean distances between the query point and all points in the data
-  distances <- sqrt((data$age - query_point[1])^2 + (data$experience_numeric - query_point[2])^2)
-  
-  # Find the k nearest neighbors
-  nearest_neighbors <- order(distances)[1:k]
-  
-  # Return the mean of the target variable for the k nearest neighbors
-  return(mean(target[nearest_neighbors]))
-}
-
-# Step 2: Create a grid for the age and experience levels
-age_range <- seq(min(age), max(age), length.out = 30)
-experience_range <- seq(min(experience_numeric), max(experience_numeric), length.out = 30)
-grid <- expand.grid(age = age_range, experience = experience_range)
-
-# Step 3: Predict played_hours for each point on the grid using KNN
-k <- 5  # Set the number of neighbors (you can tune this)
-predicted_played_hours <- apply(grid, 1, function(x) knn_predict(x, k, clean_data, played_hours))
-
-# Step 4: Reshape predictions into a matrix for plotting
-Z <- matrix(predicted_played_hours, nrow = length(age_range), ncol = length(experience_range))
-
-# Step 5: Create the 3D surface plot using base R's 'persp()'
-persp(age_range, experience_range, Z,
-      xlab = "Age of Players",
-      ylab = "Experience Level of Players",
-      zlab = "Predicted Played Hours",
-      main = "KNN Regression: Age, Experience Level vs Played Hours",
-      col = "lightblue",
-      theta = 30, phi = 20)  # Set the view angles
 ## Discussion
 
 - summarize what you found
