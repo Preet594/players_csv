@@ -52,3 +52,9 @@ select_data
 clean_data <- mutate(select_data, 
     experience = as.numeric(experience))
 clean_data
+
+
+clean_data <- as.numeric(factor(select_data, 
+   experience = c("Beginner", "Amateur", "Regular", Veteran", "Pro"))
+
+clean_data <- select_data(experience = c("Beginner", "Amateur", "Regular", "Veteran", "Pro"))
