@@ -55,6 +55,6 @@ clean_data
 
 
 clean_data <- as.numeric(factor(select_data, 
-   experience = c("Beginner", "Amateur", "Regular", Veteran", "Pro"))
+   experience = c("Beginner", "Amateur", "Regular", "Veteran", "Pro"))
 
 clean_data <- select_data(experience = c("Beginner", "Amateur", "Regular", "Veteran", "Pro"))
