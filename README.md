@@ -151,6 +151,20 @@ knn_mult_mets <- metrics(truth = played_hours, estimate = .pred) |>
   filter(.metric == 'rmse')
 knn_mult_mets
 
+plot_3D <- plot_ly(data = clean_data, 
+                   x = ~age, 
+                   y = ~experience, 
+                   z = ~played_hours, 
+                   type = "scatter3d", 
+                   mode = "markers", 
+                   marker = list(size = 5, color = clean_data$played_hours, colorscale = 'Viridis', showscale = TRUE))|>
+  layout(title = "3D Plot: Relationship between the Age and Experience Level of Players and their Total Played Hours",
+         scene = list(
+           xaxis = list(title = "Age of Players"),
+           yaxis = list(title = "Experience Level of Players"),
+           zaxis = list(title = "Total Played Hours for each Player")
+         ))
+plot_3D
 ## Discussion
 
 - summarize what you found
