@@ -65,3 +65,8 @@ select_data <- select_data %>%
     experience == "veteran" ~ 4,
     TRUE ~ NA_real_  # Handles missing or unmatched cases
   ))
+
+select_data <- clean_data(
+  experience = c("beginner", "amateur", "regular", "pro", "veteran"),
+  score = c(1, 2, 3, 4, 5)
+)
