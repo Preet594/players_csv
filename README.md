@@ -67,6 +67,8 @@ clean_data <- select_data |>
 
 clean_data
 
+### Visualizing the Data Separately
+
 age_plot <- clean_data |>
                 ggplot(aes(x=age, y=played_hours))+
                 geom_bar(stat='identity')+
@@ -84,6 +86,8 @@ experience_plot <- clean_data |>
                     theme(text= element_text(size=12))
 
 experience_plot  
+
+### Splitting the Data into Training and Testing Sets
 
 clean_data_split <- initial_split(clean_data, prop = 0.75, strata = played_hours)
 clean_data_training <- training(clean_data_split)
