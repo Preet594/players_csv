@@ -125,10 +125,12 @@ clean_data_fit <- workflow() |>
 
 clean_data_summary <- clean_data_fit |>
   predict(clean_data_testing) |>
-  bind_cols(clean_data_testing) |>
-  metrics(truth = played_hours, estimate = .pred) |>
-  filter(.metric == 'rmse')
+  bind_cols(clean_data_testing)
 clean_data_summary
+
+knn_mult_mets <- metrics(truth = played_hours, estimate = .pred) |>
+  filter(.metric == 'rmse')
+knn_mult_mets
 
 ## Discussion
 
