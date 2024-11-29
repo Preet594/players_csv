@@ -1,3 +1,4 @@
+
 # Final Project Report: Using Age and Level of Experience to Predict Individual Play Time on PlaiCraft Server
 
 By Prisha Budhiraja, Yiming Chen, Preet Dhillon,  Jaime Fraser, and Stephanie Tamkee
@@ -59,6 +60,24 @@ clean_data <- select_data |>
                               ifelse(experience == "Veteran", 5, NA))))))
 
 clean_data
+
+age_plot <- clean_data |>
+                ggplot(aes(x=age, y=played_hours))+
+                geom_bar(stat='identity')+
+                xlab("Age of Player (in years)")+
+                ylab("Total Time Spent Playing (in hours)") +
+                 theme(text= element_text(size=12))
+          
+age_plot
+
+experience_plot <- clean_data |>
+                    ggplot(aes(x=experience, y=played_hours))+
+                    geom_bar(stat='identity')+
+                    xlab("Experience Level of Player(Beginner-Veteran)") +
+                    ylab("Total Time Spent Playing (in hours)") +
+                    theme(text= element_text(size=12))
+
+experience_plot  
 
 clean_data_split <- initial_split(clean_data, prop = 0.75, strata = played_hours)
 clean_data_training <- training(clean_data_split)
