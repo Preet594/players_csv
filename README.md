@@ -63,3 +63,11 @@ clean_data
 clean_data_split <- initial_split(clean_data, prop = 0.75, strata = played_hours)
 clean_data_training <- training(clean_data_split)
 clean_data_testing <- testing(clean_data_split)
+
+## Discussion
+
+- summarize what you found
+- discuss whether this is what you expected to find?
+- discuss what impact could such findings have?
+- discuss what future questions could this lead to?
+
