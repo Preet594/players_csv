@@ -1,4 +1,4 @@
-# Final Project Report
+# Final Project Report: Using Age and Level of Experience to Predict Individual Play Time on PlaiCraft Server
 
 By Prisha Budhiraja, Yiming Chen, Preet Dhillon,  Jaime Fraser, and Stephanie Tamkee
 
