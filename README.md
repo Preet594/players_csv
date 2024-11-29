@@ -16,6 +16,22 @@ This players.csv file contains a list of all the unique players, including the f
 "individualId" and "organizationName" (logical data type) are also column headings in the data set, however, there is no data contained in these columns. Excluding these variables, there are 7 variables (Note: "hashedEmail" and "name" are unique to each individual and are not dependent variables) and 196 observations.
 
 
+The following table describes each variable by its name, type of variable, any issues observed in the data, and any other potential issues:
+   
+|     Name     |    Type   |  Visible Issues  |  Potential Issues  |
+| ------------ | --------- | ---------------- | ------------------ |
+|  experience  | character | N/A              | It is unclear what each category represents in terms of experience |
+|  subscribe   | logical   | N/A              | N/A                |
+| hashedEamil  | character | Value is not readable              | Not usable as predictor                |
+| played_hours | double    | Many values are 0, indicating many players have not played | N/A |
+|     name     | character | N/A| Not usable as predictor                |
+|    gender    | character | N/A              | Gender is not binary; if this data is to be used, this must be considered |
+|      age     | double    | N/A              | The idea that age cannot go to infinity may be considered depending on the method used in this project |
+
+Note: N/A indicates that no issue is observed from looking at data set, however, more issues may be detected or resolved later on.
+
+
+
 library(tidyverse)
 library(repr)
 library(tidymodels)
