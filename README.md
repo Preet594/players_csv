@@ -147,7 +147,7 @@ clean_data_summary <- clean_data_fit |>
   bind_cols(clean_data_testing)
 clean_data_summary
 
-knn_mult_mets <- metrics(knn_mult_preds, truth = played_hours, estimate = .pred) |>
+knn_mult_mets <- metrics(clean_data_summary, truth = played_hours, estimate = .pred) |>
   filter(.metric == 'rmse')
 knn_mult_mets
 
