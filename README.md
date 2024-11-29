@@ -43,9 +43,13 @@ library(tidymodels)
 library(ggplot2)
 options(repr.matrix.max.rows = 6)
 
+### Loading the Dataset
+
 url <- "https://drive.google.com/uc?id=1Mw9vW0hjTJwRWx0bDXiSpYsO3gKogaPz"
 players <- read_csv(url)
 players
+
+### Wrangling and Cleaning the Data
 
 ##To wrangle and clean our data we selected only the columns we will be using for our data analysis, filtered the played hours column so that our data set only includes observations from people that have played on the server, and mutated the experience column from a character variable to a numeric variable with Beginner = 1, Amateur = 2, Regular = 3, Pro = 4, and Veteran = 5.
 select_data <- players |> 
