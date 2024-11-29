@@ -64,6 +64,10 @@ clean_data_split <- initial_split(clean_data, prop = 0.75, strata = played_hours
 clean_data_training <- training(clean_data_split)
 clean_data_testing <- testing(clean_data_split)
 
+clean_data_recipe<-recipe(played_hours ~ experience + age, data = clean_data_training ) |>
+  step_scale(all_predictors()) |>
+  step_center(all_predictors())
+  
 ## Discussion
 
 - summarize what you found
