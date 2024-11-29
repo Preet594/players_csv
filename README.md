@@ -36,7 +36,6 @@ library(tidyverse)
 library(repr)
 library(tidymodels)
 library(ggplot2)
-source("cleanup.R")
 options(repr.matrix.max.rows = 6)
 
 url <- "https://drive.google.com/uc?id=1Mw9vW0hjTJwRWx0bDXiSpYsO3gKogaPz"
