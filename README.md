@@ -52,9 +52,11 @@ players
 ### Wrangling and Cleaning the Data
 
 ##To wrangle and clean our data we selected only the columns we will be using for our data analysis, filtered the played hours column so that our data set only includes observations from people that have played on the server, and mutated the experience column from a character variable to a numeric variable with Beginner = 1, Amateur = 2, Regular = 3, Pro = 4, and Veteran = 5.
+
 select_data <- players |> 
     filter(played_hours > 0) |>
     select(played_hours, age, experience)
+    
 select_data
 
 clean_data <- select_data |>
@@ -107,6 +109,7 @@ clean_data_vfold <- vfold_cv(clean_data_training , v = 5, strata = played_hours)
 clean_data_wkflw <- workflow() |>
   add_recipe(clean_data_recipe) |>
   add_model(clean_data_spec)
+  
 clean_data_wkflw
 
 gridvals <- tibble(neighbors = seq(from = 1, to = 200, by = 1))
@@ -115,10 +118,12 @@ clean_data_results <- clean_data_wkflw |>
   tune_grid(resamples = clean_data_vfold, grid = gridvals) |>
   collect_metrics() |>
   filter(.metric == "rmse")
+  
 clean_data_results
 
 clean_data_min <- clean_data_results |>
   filter(mean == min(mean))
+  
 clean_data_min
 
 #The minimum RMSPE value corresponds to the K value that should be used for testing the data. However, the minimum K value, 64, found from the results of the training data corresponds to a dot on the following graph that does not appear to follow the general pattern of the rest of the RMSPE values in relation to K-value. We chose this K value because it was the minimum, but we are unsure if this is the correct choice as this K value appears out of place in the plot.
@@ -128,6 +133,7 @@ rmspe_plot <- clean_data_results |>
     geom_point() +
     xlab("Neighbors")+
     ylab("RMSPE")
+    
 rmspe_plot
 
 #moving onto testing: 
@@ -145,10 +151,12 @@ clean_data_fit <- workflow() |>
 clean_data_summary <- clean_data_fit |>
   predict(clean_data_testing) |>
   bind_cols(clean_data_testing)
+  
 clean_data_summary
 
 knn_mult_mets <- metrics(clean_data_summary, truth = played_hours, estimate = .pred) |>
   filter(.metric == 'rmse')
+  
 knn_mult_mets
 
 plot_3D <- plot_ly(data = clean_data, 
