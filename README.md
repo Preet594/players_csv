@@ -175,6 +175,18 @@ plot_3D <- plot_ly(data = clean_data,
            zaxis = list(title = "Total Played Hours for each Player")
          ))
 plot_3D
+
+install.packages("scatterplot3d")
+library(scatterplot3d)
+plot_3d <- scatterplot3d(clean_data$age, 
+                         clean_data$experience, 
+                         clean_data$played_hours, 
+                         pch = 19,             
+                         color = clean_data$played_hours,  
+                         main = "3D Plot: Relationship between Age, Experience Level, and Played Hours",
+                         xlab = "Age of Players",
+                         ylab = "Experience Level of Players",
+                         zlab = "Total Played Hours")
 ## Discussion
 
 - summarize what you found
