@@ -32,7 +32,7 @@ The following table describes each variable by its name, type of variable, any i
 
 Note: N/A indicates that no issue is observed from looking at data set, however, more issues may be detected or resolved later on.
 
-
+## Methods & Results
 
 library(tidyverse)
 library(repr)
