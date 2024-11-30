@@ -181,8 +181,15 @@ plot_3d
 
 ## Discussion
 
+From visualizing the individual players' total played hours versus their age and experience level, we found that 
 - summarize what you found
+
+We expected that the data would show younger people and those with a higher experience level (Pro or Veteran) would have the greatest playing time. 
 - discuss whether this is what you expected to find?
+
+Our findings...
 - discuss what impact could such findings have?
+
+These findings could lead us to ask...
 - discuss what future questions could this lead to?
 
