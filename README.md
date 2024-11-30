@@ -187,7 +187,7 @@ From visualizing the individual players' total played hours versus their age and
 We expected that the data would show younger people and those with a higher experience level (Pro or Veteran) would have the greatest playing time. 
 - discuss whether this is what you expected to find?
 
-Our findings...
+Our findings can help with game design and marketing by assisting game developers in understanding who is playing on the server the most. Because most players are younger in age, the game developers should develop features of the game that appeal to younger audiences and create new features that can appeal to older audiences to engage this part of the population more. Overall, with our research question answered, our data should impact the decisions that game developers make as they can further engage the primary players of PlaiCraft and look to involve other populations that are playing less. 
 - discuss what impact could such findings have?
 
 These findings could lead us to ask...
