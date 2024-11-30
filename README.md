@@ -128,6 +128,8 @@ clean_data_min
 
 #The minimum RMSPE value corresponds to the K value that should be used for testing the data. However, the minimum K value, 64, found from the results of the training data corresponds to a dot on the following graph that does not appear to follow the general pattern of the rest of the RMSPE values in relation to K-value. We chose this K value because it was the minimum, but we are unsure if this is the correct choice as this K value appears out of place in the plot.
 
+### Visualizing RMSE Across K Values
+
 rmspe_plot <- clean_data_results |>
     ggplot(aes(x=neighbors, y = mean))+
     geom_point() +
@@ -136,6 +138,7 @@ rmspe_plot <- clean_data_results |>
     
 rmspe_plot
 
+### Finalizing and Testing the Model
 #moving onto testing: 
 kmin <- clean_data_min |> pull(neighbors)
 
@@ -159,6 +162,8 @@ knn_mult_mets <- clean_data_summary|>
   metrics(truth = played_hours, estimate = .pred) |>
   filter(.metric == 'rmse')
 knn_mult_mets
+
+### 3D Visualization of Data Relationships
 
 install.packages("scatterplot3d")
 library(scatterplot3d)
