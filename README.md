@@ -171,7 +171,7 @@ plot_3d <- plot_ly(clean_data,
                    z = ~played_hours, 
                    marker = list(size = 5, 
                                  color = ~experience, 
-                                 colorscale = "Viridis", 
+                                 colorscale = "RColorBrewer", 
                                  showscale = TRUE)) %>%
   add_markers() %>%
   layout(scene = list(
