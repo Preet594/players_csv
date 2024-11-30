@@ -181,7 +181,7 @@ plot_3d
 
 ## Discussion
 
-From visualizing the individual players' total played hours versus their age and experience level, we found that 
+From visualizing the individual players' total played hours versus their age and experience level, we found that the primary players of PlaiCraft are younger people aged 15-30. The players that play the most hours also fall within this age range and tend to have an experience level of "Amateur" or "Regular". This shows that the total played hours of an individual may be affected by their age and experience level as younger audiences of lower to medium experience levels are primarily the individuals playing the most hours on the server. As age increases, there are less individuals altogether on the server. There appears to be a relatively even amount of players within each experience level (less individuals identifying as a "Pro" or "Veteran"), however the players that played the most total hours were most often of "Amateur" or Regular" experience level.
 - summarize what you found
 
 We expected that the data would show younger people and those with a higher experience level (Pro or Veteran) would have the greatest playing time. 
