@@ -117,7 +117,6 @@ clean_data_results <- clean_data_wkflw |>
   tune_grid(resamples = clean_data_vfold, grid = gridvals) |>
   collect_metrics() |>
   filter(.metric == "rmse")
-  
 clean_data_results
 
 clean_data_min <- clean_data_results |>
