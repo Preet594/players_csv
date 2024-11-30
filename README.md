@@ -51,6 +51,8 @@ url <- "https://drive.google.com/uc?id=1Mw9vW0hjTJwRWx0bDXiSpYsO3gKogaPz"
 players <- read_csv(url)
 players
 
+_figure 2_
+
 ### Wrangling and Cleaning the Data
 
 ##To wrangle and clean our data we selected only the columns we will be using for our data analysis, filtered the played hours column so that our data set only includes observations from people that have played on the server, and mutated the experience column from a character variable to a numeric variable with Beginner = 1, Amateur = 2, Regular = 3, Pro = 4, and Veteran = 5.
@@ -60,6 +62,8 @@ select_data <- players |>
     select(played_hours, age, experience)
 select_data
 
+_figure 3_
+
 clean_data <- select_data |>
   filter(played_hours > 0) |>  
   mutate(experience = ifelse(experience == "Beginner", 1,
@@ -68,6 +72,8 @@ clean_data <- select_data |>
                               ifelse(experience == "Pro", 4,
                               ifelse(experience == "Veteran", 5, NA))))))
 clean_data
+
+_figure 4_
 
 ### Visualizing the Data Separately
 
@@ -80,6 +86,8 @@ age_plot <- clean_data |>
                  theme(text= element_text(size=12))
 age_plot
 
+_figure 5_
+
 ### Visualizing the Relationship between Experience Level and Played Hours 
 experience_plot <- clean_data |>
                     ggplot(aes(x=experience, y=played_hours))+
@@ -89,6 +97,8 @@ experience_plot <- clean_data |>
                     theme(text= element_text(size=12))
 
 experience_plot  
+
+_figure 6_
 
 ### Splitting the Data into Training and Testing Sets
 
@@ -121,10 +131,14 @@ clean_data_results <- clean_data_wkflw |>
   filter(.metric == "rmse")
 clean_data_results
 
+_figure 7_
+
 clean_data_min <- clean_data_results |>
   filter(mean == min(mean))
   
 clean_data_min
+
+_figure 8_
 
 #The minimum RMSPE value corresponds to the K value that should be used for testing the data. However, the minimum K value, 64, found from the results of the training data corresponds to a dot on the following graph that does not appear to follow the general pattern of the rest of the RMSPE values in relation to K-value. We chose this K value because it was the minimum, but we are unsure if this is the correct choice as this K value appears out of place in the plot.
 
@@ -137,6 +151,8 @@ rmspe_plot <- clean_data_results |>
     ylab("RMSPE")
     
 rmspe_plot
+
+_figure 9_
 
 ### Finalizing and Testing the Model
 #moving onto testing: 
@@ -157,6 +173,7 @@ clean_data_summary <- clean_data_fit |>
   
 clean_data_summary
 
+_figure 10_
 
 knn_mult_mets <- clean_data_summary|> 
   metrics(truth = played_hours, estimate = .pred) |>
@@ -180,6 +197,8 @@ plot_3d <- plot_ly(clean_data,
     zaxis = list(title = "Total Played Hours")),
     title = "3D Plot: Relationship between Age, Experience Level, and Total Played Hours of Players")
 plot_3d
+
+_figure 11_
 
 ## Discussion
 
