@@ -69,15 +69,16 @@ clean_data
 
 ### Visualizing the Data Separately
 
+### Visualizing the Relationship between Age and Played Hours 
 age_plot <- clean_data |>
                 ggplot(aes(x=age, y=played_hours))+
                 geom_bar(stat='identity')+
                 xlab("Age of Player (in years)")+
                 ylab("Total Time Spent Playing (in hours)") +
                  theme(text= element_text(size=12))
-          
 age_plot
 
+### Visualizing the Relationship between Experience Level and Played Hours 
 experience_plot <- clean_data |>
                     ggplot(aes(x=experience, y=played_hours))+
                     geom_bar(stat='identity')+
