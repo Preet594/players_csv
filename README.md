@@ -155,7 +155,8 @@ rmspe_plot
 
 _figure 9_
 ### Finalizing and Testing the Model
-#moving onto testing: 
+### Assess models RMSPE on the test data
+###Re-train K-NN regression model on the entire training data set with K and then use that model to make predictions on the test data
 kmin <- clean_data_min |> pull(neighbors)
 
 clean_data_spec <- nearest_neighbor(weight_func = "rectangular", neighbors = kmin) |>
@@ -170,7 +171,6 @@ clean_data_fit <- workflow() |>
 clean_data_summary <- clean_data_fit |>
   predict(clean_data_testing) |>
   bind_cols(clean_data_testing)
-  
 clean_data_summary
 
 _figure 10_
