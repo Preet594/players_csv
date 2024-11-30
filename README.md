@@ -127,6 +127,7 @@ clean_data_wkflw <- workflow() |>
   add_model(clean_data_spec)
 clean_data_wkflw
 
+###Run cross-validation for a grid of numbers of neighbors ranging from 1 to 200
 gridvals <- tibble(neighbors = seq(from = 1, to = 200, by = 1))
 
 clean_data_results <- clean_data_wkflw |>
@@ -136,26 +137,23 @@ clean_data_results <- clean_data_wkflw |>
 clean_data_results
 
 _figure 7_
+###Take the minimum RMSPE to find the best setting for the number of neighbors
 
 clean_data_min <- clean_data_results |>
   filter(mean == min(mean))
-  
 clean_data_min
 
 _figure 8_
-
-### Visualizing RMSE Across K Values
+### Visualizing how RMSPE varies with the number of neighbors K
 
 rmspe_plot <- clean_data_results |>
     ggplot(aes(x=neighbors, y = mean))+
     geom_point() +
     xlab("Neighbors")+
     ylab("RMSPE")
-    
 rmspe_plot
 
 _figure 9_
-
 ### Finalizing and Testing the Model
 #moving onto testing: 
 kmin <- clean_data_min |> pull(neighbors)
