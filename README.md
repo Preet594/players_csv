@@ -32,6 +32,7 @@ The following table describes each variable by its name, type of variable, any i
 |      age     | double    | N/A              | The idea that age cannot go to infinity may be considered depending on the method used in this project |
 
 Note: N/A indicates that no issue is observed from looking at data set, however, more issues may be detected or resolved later on.
+
 _figure 1_
 
 ## Methods & Results
