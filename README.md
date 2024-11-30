@@ -56,7 +56,6 @@ players
 select_data <- players |> 
     filter(played_hours > 0) |>
     select(played_hours, age, experience)
-    
 select_data
 
 clean_data <- select_data |>
@@ -66,7 +65,6 @@ clean_data <- select_data |>
                               ifelse(experience == "Regular", 3,
                               ifelse(experience == "Pro", 4,
                               ifelse(experience == "Veteran", 5, NA))))))
-
 clean_data
 
 ### Visualizing the Data Separately
