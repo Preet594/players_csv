@@ -192,4 +192,7 @@ Our findings can help with game design and marketing by assisting game developer
 
 These findings could lead us to ask...
 - discuss what future questions could this lead to?
+1. What factors influence the level of engagement for the age groups 15 -30, which have the highest total played hours?
+2. What causes older players or more experienced players (Vetern) to play less frequently or stop playing all together ?
+3. How does the playing hours time distribution vary throughout the day for the age group 15-30, which have the highest total played hours ?
 
