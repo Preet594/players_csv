@@ -182,16 +182,12 @@ plot_3d
 ## Discussion
 
 From visualizing the individual players' total played hours versus their age and experience level, we found that the primary players of PlaiCraft are younger people aged 15-30. The players that play the most hours also fall within this age range and tend to have an experience level of "Amateur" or "Regular". This shows that the total played hours of an individual may be affected by their age and experience level as younger audiences of lower to medium experience levels are primarily the individuals playing the most hours on the server. As age increases, there are less individuals altogether on the server. There appears to be a relatively even amount of players within each experience level (less individuals identifying as a "Pro" or "Veteran"), however the players that played the most total hours were most often of "Amateur" or Regular" experience level.
-- summarize what you found
 
 We expected that the data would show younger people and those with a higher experience level (Pro or Veteran) would have the greatest playing time. We correctly hypothesized that younger people would play more often and for longer. However, we incorrectly predicted that players with a higher experience level would have a greater playing time than thsoe with a lower experience level. Instead, our data showed that from the players who identified as a "Pro" or "Veteran", they often played very few hours on the server. 
-- discuss whether this is what you expected to find?
 
 Our findings can help with game design and marketing by assisting game developers in understanding who is playing on the server the most. Because most players are younger in age, the game developers should develop features of the game that appeal to younger audiences and create new features that can appeal to older audiences to engage this part of the population more. Overall, with our research question answered, our data should impact the decisions that game developers make as they can further engage the primary players of PlaiCraft and look to involve other populations that are playing less. 
-- discuss what impact could such findings have?
 
 These findings could lead us to ask...
-- discuss what future questions could this lead to?
 1. What factors influence the level of engagement for the age groups 15 -30, which have the highest total played hours?
 2. What causes older players or more experienced players (Vetern) to play less frequently or stop playing all together ?
 3. How does the playing hours time distribution vary throughout the day for the age group 15-30, which have the highest total played hours ?
