@@ -106,21 +106,25 @@ clean_data_split <- initial_split(clean_data, prop = 0.75, strata = played_hours
 clean_data_training <- training(clean_data_split)
 clean_data_testing <- testing(clean_data_split)
 
+###Use R to perform cross-validation and to choose the optimal K
+###Create a recipe for preprocessing the data. Note: We include standardization in our preprocessing  since we  have two predictors
+
 clean_data_recipe<-recipe(played_hours ~ experience + age, data = clean_data_training ) |>
   step_scale(all_predictors()) |>
   step_center(all_predictors())
-
+  
+###Create a model specification for K-nearest neighbors regression
 clean_data_spec <- nearest_neighbor(weight_func = "rectangular",
                               neighbors = tune()) |>
   set_engine("kknn") |>
   set_mode("regression")
-
+  
+###Create a 5-fold cross-validation object, and put the recipe and model specification together in a workflow
 clean_data_vfold <- vfold_cv(clean_data_training , v = 5, strata = played_hours)
 
 clean_data_wkflw <- workflow() |>
   add_recipe(clean_data_recipe) |>
   add_model(clean_data_spec)
-  
 clean_data_wkflw
 
 gridvals <- tibble(neighbors = seq(from = 1, to = 200, by = 1))
